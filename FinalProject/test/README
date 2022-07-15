@@ -1,0 +1,92 @@
+int16_t keyPress = decoder.getKeyCode();
+  //if the line following statement is false and the robot is in romote control mode
+  if (lineFollow == false)
+  {
+    //statements for each button press
+    switch (keyPress)
+    {
+    //up arrow moves the robot forwards at a set effort
+    case remoteUp:
+      left.setEffort(0.3);
+      right.setEffort(0.3);
+      break;
+    //left arrow turns the robot 90 degrees to the left
+    case remoteLeft:
+      turn(90);
+      break;
+      // right arrow turns the robot to the right 90 degrees
+    case remoteRight:
+      turn(-90);
+      break;
+    //button 0 stops the robot
+    case remote0:
+      left.setEffort(0);
+      right.setEffort(0);
+      break;
+    //down arrow moves the robot backwards at a set effort
+    case remoteDown:
+      left.setEffort(-0.3);
+      right.setEffort(-0.3);
+      break;
+    //button 1 sets the robot to 10% effort
+    case remote1:
+      left.setEffort(0.1);
+      right.setEffort(0.1);
+      break;
+      //button 2 sets the robot to 20% effort
+    case remote2:
+      left.setEffort(0.2);
+      right.setEffort(0.2);
+      break;
+    //button 3 sets the robot to 30% effort
+    case remote3:
+      left.setEffort(0.3);
+      right.setEffort(0.3);
+      break;
+    //button 4 sets the robot to 40% effort
+    case remote4:
+      left.setEffort(0.4);
+      right.setEffort(0.4);
+      break;
+    //button 5 sets the robot to 50% effort
+    case remote5:
+      left.setEffort(0.5);
+      right.setEffort(0.5);
+      break;
+    //button 6 sets the robot to 60% effort
+    case remote6:
+      left.setEffort(0.6);
+      right.setEffort(0.6);
+      break;
+    //button 7 sets the robot to 70% effort
+    case remote7:
+      left.setEffort(0.7);
+      right.setEffort(0.7);
+      break;
+    //button 8 sets the robot to 80% effort
+    case remote8:
+      left.setEffort(0.8);
+      right.setEffort(0.8);
+      break;
+    //button 9 sets the robot to 90% effort
+    case remote9:
+      left.setEffort(0.9);
+      right.setEffort(0.9);
+      break;
+    //minus volume sets the arm to 0 degrees
+    case remoteVolMinus:
+      armServo.write(0);
+      break;
+    //play pause sets the arm to 70 degrees
+    case remotePlayPause:
+      armServo.write(70);
+      break;
+    //add volume sets the arm to 180 degrees
+    case remoteVolPlus:
+      armServo.write(180);
+      break;
+    }
+  }
+  //Line Following using proportional control
+  if (lineFollow == true)
+  {
